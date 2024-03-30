@@ -1,27 +1,42 @@
 
-const initialState:any = [
-    { id: 1, choice: 'rock',color:'red',image:'icon-rock.svg' },
-    { id: 2, choice: 'paper',color:'blue',image:'icon-paper.svg'  },
-    { id: 3, choice: 'scissors',color:'yellow',image:'icon-scissors.svg'  },
-    { id: 4, choice: 'lizard',color:'orange',image:'icon-lizard.svg' },
-    { id: 5, choice: 'spock',color:'green',image:'icon-spock.svg' },
-]
+/* const initialState: any = [
+        tasc: [
+            { id: 1, choice: 'rock', color: 'red', image: 'icon-rock.svg', variant: 'classic' },
+            { id: 2, choice: 'paper', color: 'blue', image: 'icon-paper.svg', variant: 'classic' },
+            { id: 3, choice: 'scissors', color: 'yellow', image: 'icon-scissors.svg', variant: 'classic' },
+        ],
+        type: "classic"
+] */
+const initialState = {
+    tasc:
+        [
+            { id: 1, choice: 'rock', color: 'red', image: 'icon-rock.svg', variant: 'classic' },
+            { id: 2, choice: 'paper', color: 'blue', image: 'icon-paper.svg', variant: 'classic' },
+            { id: 3, choice: 'scissors', color: 'yellow', image: 'icon-scissors.svg', variant: 'classic' },
+        ],
+    type: "classic"
+};
 
 const changeGameType = (state: any, action: any) => {
     switch (action.type) {
         case 'CLASSIC':
             return initialState
         case 'BONUS':
-            return [
-                { id: 1, choice: 'rock',color:'red',image:'icon-rock.svg' },
-                { id: 2, choice: 'paper',color:'blue',image:'icon-paper.svg'  },
-                { id: 3, choice: 'scissors',color:'yellow',image:'icon-scissors.svg'  },
-                { id: 4, choice: 'lizard',color:'orange',image:'icon-lizard.svg' },
-                { id: 5, choice: 'spock',color:'green',image:'icon-spock.svg' },
-            ];
+            return {
+                tasc:
+                    [
+                        { id: 1, choice: 'rock', color: 'red', image: 'icon-rock.svg', variant: 'bonus' },
+                        { id: 2, choice: 'paper', color: 'blue', image: 'icon-paper.svg', variant: 'bonus' },
+                        { id: 3, choice: 'scissors', color: 'yellow', image: 'icon-scissors.svg', variant: 'bonus' },
+                        { id: 4, choice: 'lizard', color: 'orange', image: 'icon-lizard.svg', variant: 'bonus' },
+                        { id: 5, choice: 'spock', color: 'green', image: 'icon-spock.svg', variant: 'bonus' },
+                    ],
+                type: "bonus"
+            };
         default:
             return initialState
     }
 }
 
 export { changeGameType, initialState };
+

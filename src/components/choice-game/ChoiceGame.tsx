@@ -14,8 +14,10 @@ const ChoiceGame: FC = ({ choise }: any) => {
 
     return (
         <div>
+            <button  onClick={() => dispatch({ type: 'BONUS' })}>click</button>
+          
             {
-                <ChoiseElement item={state} />
+                <ChoiseElement item={state}  />
             }
         </div>
     )
