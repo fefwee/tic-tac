@@ -1,0 +1,41 @@
+.flex {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flexTtile {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex h2 {
+    color: #fff;
+    width:100%;
+    height: 50px;
+    text-align: center;
+    word-wrap: break-word;
+}
+.textResult h1 {
+    color: #fff;
+    height: 50px;
+    text-align: center;
+    word-wrap: break-word;
+}
+
+.boxElement {
+    padding: 10px;
+    height: 100%;
+}
+
+.textResult {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.textResultBlock {
+    padding: 30px;
+}

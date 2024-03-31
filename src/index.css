@@ -3,10 +3,22 @@
   padding: 0;
   box-sizing: border-box;
 }
-img{
+
+img {
   max-width: 100%;
 }
 
 body {
   background-color: #1b2a4b;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+.count{
+  margin-top: 30px;
 }
