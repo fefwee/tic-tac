@@ -1,25 +1,27 @@
 import React, { FC, useContext, useEffect, useReducer } from 'react';
 import style from './style.module.css';
-import { changeGameType, initialState } from '../../reducer/reducer';
+import { changeGameType } from '../../reducer/reducer';
 import ChoiseElement from '../choose-element/ChoiseElement';
 import { Context } from '../../context/Context';
 
+interface ChoiceGameProps {
+    initialState: any;
+}
 
-const ChoiceGame: FC = ({ choise }: any) => {
+const ChoiceGame: FC<ChoiceGameProps> = ({ initialState }: any) => {
 
-    const [state, dispatch] = useReducer(changeGameType, initialState);
+    const context = useContext(Context);
     const setContextValue = useContext(Context)
 
-    useEffect(()=>{
-        setContextValue.setCUrrentGame(state)
-    },[state])
+    useEffect(() => {
+        setContextValue.setCUrrentGame(initialState);
+    }, [initialState])
 
     return (
         <div>
-     {/* {       <button  onClick={() => dispatch({ type: 'BONUS' })}>click</button>} */}
-     {       <button  onClick={() => dispatch({ type: 'BONUS' })}>click</button>}
+
             {
-                <ChoiseElement item={state}  />
+                <ChoiseElement item={initialState} />
             }
         </div>
     )

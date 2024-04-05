@@ -10,57 +10,84 @@ const SingleChoiceElement = () => {
   const context = useContext(Context);
   const [singleState, setSingleState] = useState<any>(context.currentGame.tasc);
   const [dataFromChild, setDataFromChild] = useState<any>([]);
+  const [single, setSingle] = useState<any>({});
   const [result, setResult] = useState<any>('');
+  const [count,setCount] = useState(0)
   const navigate = useNavigate();
   const { id } = useParams();
 
-  useEffect(() => {
-    handleChoice(filt[0].choice, dataFromChild.choice);
-  }, [dataFromChild])
 
-  if (!singleState) {
-    return <div>Вернитесь на главную</div>;
+  const userChoice = (data: any, id: any) => {
+    console.log(data)
+    if (data) {
+      const dat = data.filter((item: any) => item.id === Number(id));
+      setSingle(dat[0]);
+      return dat;
+    } else {
+      return [];
+    }
   }
 
-  const filt = singleState.filter((item: any) => item.id === Number(id));
+
+
+  useEffect(() => {
+    if (Object.keys(single).length !== 0) {
+      handleUserChoice(single, dataFromChild);
+    }
+  }, [single, dataFromChild])
+
+  if (!singleState) {
+    return <div>Вернитесь на главную</  div>;
+  }
+
 
   const handleDataFromChild = (data: any) => {
-    setDataFromChild(data);
+    if (JSON.stringify(data) !== '{}') {
+      userChoice(singleState, id);
+      setDataFromChild(data);
+    }
   };
+
 
   const redirectAgainGame = () => {
     navigate('/')
   }
 
-  function handleChoice(choice: any, computerChoice: any) {
-    if (choice === computerChoice) {
-      setResult('Ничья')  
-    }
-    else if (
-      (choice === 'rock' && (computerChoice === 'scissors' || computerChoice === 'lizard')) ||
-      (choice === 'paper' && (computerChoice === 'rock' || computerChoice === 'spock')) ||
-      (choice === 'scissors' && (computerChoice === 'paper' || computerChoice === 'lizard')) ||
-      (choice === 'lizard' && (computerChoice === 'spock' || computerChoice === 'paper')) ||
-      (choice === 'spock' && (computerChoice === 'scissors' || computerChoice === 'rock'))
-    ) {
-      setResult('Вы выйграли');
+  function handleUserChoice(choice: any, computer: any) {
+    console.log(choice, computer)
+    const choices: string[] = ['rock', 'scissors', 'paper', 'spock', 'lizard'];
+    const rules: any = {
+      'rock': ['scissors', 'lizard'],
+      'scissors': ['paper', 'lizard'],
+      'paper': ['rock', 'spock'],
+      'spock': ['scissors', 'rock'],
+      'lizard': ['paper', 'spock']
+    };
+
+    if (choice.choice === computer.choice) {
+      console.log('Ничья!');
+    } else if (rules[choice.choice].includes(computer.choice)) {
+      console.log('Вы выиграли!');
+      context.setCount((count:any) => count +1 );
+    
     } else {
-      setResult('Вы проиграли');
+      console.log(count)
+      context.setCount((count:any) => { 
+        if(count === 0){
+          return count
+        }
+        return count -1});
+
+      console.log('Компьютер выиграл!');
     }
-  }
-
-
-  
+  };
 
   return <div>
     <div className={style.flex}>
       <div className={style.boxElement}>
         <h2>Вы выбрали</h2>
         <div>
-          <DetailChoiceElement
-            color={filt[0].color}
-            choice={filt[0].choice}
-            image={filt[0].image} />
+          <DetailChoiceElement random={single} />
         </div>
       </div>
       <div className={style.textResult}>
@@ -73,8 +100,7 @@ const SingleChoiceElement = () => {
         <h2>Компьютер выбрал</h2>
         <div>
           <ComputerChoise
-            arr={context.currentGame.tasc}
-            sendDataToParent={handleDataFromChild}
+            getRandom={handleDataFromChild}
           />
         </div>
       </div>

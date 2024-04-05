@@ -10,7 +10,7 @@ const Count: FC<CountProps> = ({ count }: any) => {
 
 
     const context = useContext(Context);
-
+    
 
     return (
         <div className={style.container}>

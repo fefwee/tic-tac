@@ -1,33 +1,34 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import DetailChoiceElement from '../detail-choice-element/DetailChoiceElement';
+import { Context } from '../../context/Context';
 
-const ComputerChoise = ({ arr, sendDataToParent }: any,) => {
-    const [random, setRandom] = useState(arr);
+const ComputerChoise = ({getRandom}:any) => {
+
+    const context = useContext(Context)
+    const [random, setRandom] = useState<any>(context.currentGame.tasc);
+    const [randEl, setRandEl] = useState<any>(null);
 
 
     useEffect(() => {
-        const randomElement = arrayRandElement(arr);
-            setRandom(randomElement);
+        setRandom(context.currentGame); 
+        const rand = randonElement(random);
+        getRandom(rand);
+        
     }, [])
 
-    function arrayRandElement(array: any) {
-        var rand = Math.floor(Math.random() * array.length);
-        return array[rand];
+  
+    const randonElement = (data: any) => {
+        const rand = Math.floor(Math.random() * data.length);
+        const randomData = data[rand];
+        setRandEl(randomData);
+        return randomData;
     }
-
-    useEffect(() => {
-        sendDataToParent(random);
-    }, [random])
 
     return (
         <div>
-            <DetailChoiceElement
-                color={random.color}
-                choice={random.choice}
-                image={random.image} />
-
-            <div>
-
+            <DetailChoiceElement   random = {randEl} />
+          
+            <div>  
             </div>
         </div>
     )

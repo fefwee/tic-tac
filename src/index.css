@@ -9,6 +9,7 @@ img {
 }
 
 body {
+  position: relative;
   background-color: #1b2a4b;
 }
 
@@ -21,4 +22,9 @@ li {
 }
 .count{
   margin-top: 30px;
+}
+.footer_rules{
+    display: flex;
+    width: 100%;
+    justify-content: end;
 }

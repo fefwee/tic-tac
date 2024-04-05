@@ -28,7 +28,7 @@ const ChoiseElement = (props: any) => {
             <div className={style.general_container} style={selectBackground()}>
                 {props.item.tasc.map((item: any) => {
                     return (
-                        <div className={props.item.type === 'classic' ? `${style.element_classic}`
+                        <div key={item.id} className={props.item.type === 'classic' ? `${style.element_classic}`
                             : props.item.type === 'bonus' ? `${style.element_bonus}`
                                 : undefined}>
                             <div className={`${style.container}`}
