@@ -4,11 +4,14 @@
   box-sizing: border-box;
 }
 
+
 img {
   max-width: 100%;
 }
 
 body {
+  overflow:hidden;
+  height: 100vh;
   position: relative;
   background-color: #1b2a4b;
 }
@@ -20,11 +23,11 @@ a {
 li {
   list-style: none;
 }
-.count{
+/* .count{
   margin-top: 30px;
-}
+} */
 .footer_rules{
-    display: flex;
-    width: 100%;
-    justify-content: end;
+    position: absolute;
+    right: 0;
+    bottom:0; 
 }

@@ -5,6 +5,7 @@ import { Context } from './context/Context';
 import Main from './components/main/Main';
 import FooterRules from './components/footerRules/FooterRules';
 import Modal from './components/modal/Modal';
+import { Router, Routes } from 'react-router-dom';
 
 function App() {
 

@@ -1,6 +1,5 @@
 import React, { FC, useContext, useEffect, useReducer } from 'react';
 import style from './style.module.css';
-import { changeGameType } from '../../reducer/reducer';
 import ChoiseElement from '../choose-element/ChoiseElement';
 import { Context } from '../../context/Context';
 
@@ -14,6 +13,7 @@ const ChoiceGame: FC<ChoiceGameProps> = ({ initialState }: any) => {
     const setContextValue = useContext(Context)
 
     useEffect(() => {
+        console.log(initialState)
         setContextValue.setCUrrentGame(initialState);
     }, [initialState])
 

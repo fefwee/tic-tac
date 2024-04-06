@@ -12,7 +12,7 @@ const SingleChoiceElement = () => {
   const [dataFromChild, setDataFromChild] = useState<any>([]);
   const [single, setSingle] = useState<any>({});
   const [result, setResult] = useState<any>('');
-  const [count,setCount] = useState(0)
+  const [count, setCount] = useState(0)
   const navigate = useNavigate();
   const { id } = useParams();
 
@@ -65,20 +65,20 @@ const SingleChoiceElement = () => {
     };
 
     if (choice.choice === computer.choice) {
-      console.log('Ничья!');
+      setResult('Ничья!');
     } else if (rules[choice.choice].includes(computer.choice)) {
-      console.log('Вы выиграли!');
-      context.setCount((count:any) => count +1 );
-    
+      setResult('Вы выиграли!');
+      context.setCount((count: any) => count + 1);
+
     } else {
-      console.log(count)
-      context.setCount((count:any) => { 
-        if(count === 0){
+      context.setCount((count: any) => {
+        if (count === 0) {
           return count
         }
-        return count -1});
+        return count - 1
+      });
 
-      console.log('Компьютер выиграл!');
+      setResult('Компьютер выиграл!');
     }
   };
 

@@ -1,20 +1,24 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useReducer, useState } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ChoiceGame } from '../choice-game/ChoiceGame';
 import { Count } from '../count/Count';
 import SingleChoiceElement from '../singleChoiceElement/SingleChoiceElement';
-import { initialState } from '../../reducer/reducer';
+import { classicState, BonusState } from '../../reducer/reducer';
 import { Context } from '../../context/Context';
 
 const Main = () => {
 
   const context = useContext(Context);
-  const [state, setState] = useState<any>(initialState);
+  const [state,setState] = useState<any>(classicState)
   
-  useEffect(() => {
-
-  }, [])
-
+  useEffect(()=>{
+    if(context.stateGameMode === 'CLASSIC'){
+      setState(classicState)
+    }
+    else if (context.stateGameMode === 'BONUS'){
+      setState(BonusState)
+    }
+  },[context.stateGameMode])
 
 
   return (
@@ -26,6 +30,7 @@ const Main = () => {
             <Route path=":id" element={<SingleChoiceElement />}></Route>
           </Routes>
         </div>
+        
       </div>
     </BrowserRouter>
   );
