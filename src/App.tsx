@@ -10,15 +10,18 @@ import { Router, Routes } from 'react-router-dom';
 function App() {
 
   const [currentGame, setCUrrentGame] = useState([]);
-  const [count, setCount] = useState(0);
-  const [stateGameMode, setStateGAmeModel] = useState('CLASSIC');
+  const [count, setCount] = useState<number>(0);
+  const [winner, setWinner] = useState<string>('');
+  const [stateGameMode, setStateGAmeModel] = useState<string>('CLASSIC');
   const value = {
     currentGame,
     setCUrrentGame,
     count,
     setCount,
     stateGameMode,
-    setStateGAmeModel
+    setStateGAmeModel,
+    winner,
+    setWinner
   } 
   return (
     <Context.Provider value={value}>

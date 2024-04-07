@@ -10,8 +10,8 @@ img {
 }
 
 body {
-  overflow:hidden;
-  height: 100vh;
+  overflow: hidden;
+  height: 90vh;
   position: relative;
   background-color: #1b2a4b;
 }
@@ -23,11 +23,19 @@ a {
 li {
   list-style: none;
 }
-/* .count{
+
+ .count{
   margin-top: 30px;
-} */
-.footer_rules{
-    position: absolute;
-    right: 0;
-    bottom:0; 
+}
+.footer_rules {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.shadow {
+  box-shadow:
+    0 0 0 40px rgba(39, 54, 85, 0.5),
+    0 0 0 90px rgb(34, 49, 82, 0.5),
+    0 0 0 140px rgb(31, 45, 79, 1);
 }

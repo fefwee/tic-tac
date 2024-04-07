@@ -1,77 +1,76 @@
-     .flex{
-        display: flex;
-        justify-content:space-between;
-        align-items: center;
-    } 
-.box_container {
-/*     box-shadow: 0 0 0 10px hsl(280, 100%, 40%),
-    0 0 0 20px hsl(250, 60%, 51%),
-    0 0 0 30px hsl(220, 55%, 50%),
-    0 0 0 40px hsl(190, 70%, 60%),
-    0 0 0 50px hsl(120, 90%, 75%),
-    0 0 0 60px hsl(70, 100%, 60%),
-    0 0 0 70px hsl(50, 100%, 50%),
-    0 0 0 80px hsl(30, 100%, 50%),
-    0 0 0 90px hsl(15, 100%, 50%),
-    0 0 0 100px hsl(5, 100%, 47%); */
-text-align: center;
-border-radius: 100px;
+     .flex {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+        margin: 0 50px;
+        border-radius: 100px;
+/*         box-shadow: 0 0 0 40px rgba(39, 54, 85, 0.5),
+        0 0 0 90px rgb(34, 49, 82, 0.5),
+        0 0 0 140px rgb(31, 45, 79, 1);  */ 
+        z-index: 0;
+     }
 
-
-    min-height: 100%;
+     .box_container {
    
-}
+         text-align: center;
 
-.general_container {
-    position: relative;
-    background-position: center;
-    background-repeat: no-repeat;
+         min-height: 100%;
 
-}
-.firstBack {
+     }
+
+     .general_container {
+        
+         position: relative;
+         background-position: center;
+         background-repeat: no-repeat;
+
+     }
+
+     .firstBack {
+
+         width: 100%;
+         height: 100%;
+         border-radius: 50%;
+         box-shadow: 0px -8px 0px 0px rgba(0, 0, 0, 0.56) inset;
+         -webkit-box-shadow: 0px -8px 0px 0px rgba(0, 0, 0, 0.56) inset;
+         -moz-box-shadow: 0px -8px 0px 0px rgba(0, 0, 0, 0.56) inset;
+     }
+
+     .secondBack {
+        
+         width: 75%;
+         height: 75%;
+         position: absolute;
+         background-color: #fff;
+         border-radius: 50%;
+         transform: translate(-50%, -50%);
+         left: 50%;
+         top: 50%;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         -webkit-box-shadow: inset 0px 20px 0px -11px rgba(199, 187, 199, 1);
+         -moz-box-shadow: inset 0px 20px 0px -11px rgba(199, 187, 199, 1);
+         box-shadow: inset 0px 20px 0px -11px rgba(199, 187, 199, 1);
+     }
+
+     .backImage {
+         width: 50px;
+         height: 50px auto;
+
+     }
+
+     .backImage img {
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+     }
+
+
+     .container {
     
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    box-shadow: 0px -8px 0px 0px rgba(0, 0, 0, 0.56) inset;
-    -webkit-box-shadow: 0px -8px 0px 0px rgba(0, 0, 0, 0.56) inset;
-    -moz-box-shadow: 0px -8px 0px 0px rgba(0, 0, 0, 0.56) inset;
-}
-
-.secondBack {
-    width: 75%;
-    height: 75%;
-    position: absolute;
-    background-color: #fff;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    left: 50%;
-    top: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    -webkit-box-shadow: inset 0px 20px 0px -11px rgba(199, 187, 199, 1);
-    -moz-box-shadow: inset 0px 20px 0px -11px rgba(199, 187, 199, 1);
-    box-shadow: inset 0px 20px 0px -11px rgba(199, 187, 199, 1);
-}
-
-.backImage {
-    width: 50px;
-    height: 50px auto;
-
-}
-
-.backImage img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-
-.container {
-    position: relative;
-    width: 180px;
-    height: 180px;
-
-}
-
+         position: relative;
+         width: 200px;
+         height: 200px;
+        
+     }

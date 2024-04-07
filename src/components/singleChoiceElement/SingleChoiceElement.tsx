@@ -4,9 +4,9 @@ import { Context } from "../../context/Context";
 import ComputerChoise from "../computerChoise/ComputerChoise";
 import DetailChoiceElement from "../detail-choice-element/DetailChoiceElement";
 import style from './style.module.css'
-import { GameValue, VariantGame } from "../../types/gameType";
+import { VariantGame } from "../../types/gameType";
 
-const SingleChoiceElement:FC = () => {
+const SingleChoiceElement: FC = () => {
 
   const context = useContext(Context);
   const [singleState, setSingleState] = useState<VariantGame[]>(context.currentGame.tasc);
@@ -55,10 +55,11 @@ const SingleChoiceElement:FC = () => {
     navigate('/')
   }
 
-  function handleUserChoice(choice:VariantGame, computer: VariantGame) {
+  function handleUserChoice(choice: VariantGame, computer: VariantGame) {
+    context.setWinner('');
     console.log(choice, computer)
     const choices: string[] = ['rock', 'scissors', 'paper', 'spock', 'lizard'];
-    const rules:{[key: string]: string[]} = {
+    const rules: { [key: string]: string[] } = {
       'rock': ['scissors', 'lizard'],
       'scissors': ['paper', 'lizard'],
       'paper': ['rock', 'spock'],
@@ -70,7 +71,8 @@ const SingleChoiceElement:FC = () => {
       setResult('Ничья!');
     } else if (rules[choice.choice].includes(computer.choice)) {
       setResult('Вы выиграли!');
-      context.setCount((count:number) => count + 1);
+      context.setWinner('winner')
+      context.setCount((count: number) => count + 1);
 
     } else {
       context.setCount((count: number) => {
@@ -81,6 +83,7 @@ const SingleChoiceElement:FC = () => {
       });
 
       setResult('Компьютер выиграл!');
+      context.setWinner('winner1')
     }
   };
 
@@ -89,20 +92,21 @@ const SingleChoiceElement:FC = () => {
       <div className={style.boxElement}>
         <h2>Вы выбрали</h2>
         <div>
-          <DetailChoiceElement random={single} />
+          <DetailChoiceElement random={single} result={context.winner} />
         </div>
       </div>
       <div className={style.textResult}>
         <div className={style.textResultBlock}>
-          <h1>{result}</h1>
-          <button onClick={redirectAgainGame}>Играть снова</button>
+          <h1><span>{result.split(' ')[0]}</span>{result.split(' ')[1] ? <br></br> : null}<span>{result.split(' ')[1]}</span></h1>
+          <button className={style.againButton} style={result.split(' ')[1] ? { marginTop: '50px' } : { marginTop: '0px' }} onClick={redirectAgainGame}>ИГРАТЬ СНОВА</button>
         </div>
       </div>
       <div className={style.boxElement}>
-        <h2>Компьютер выбрал</h2>
+        <h2 className={style.brString}><span>Компьютер</span><span>выбрал</span></h2>
         <div>
           <ComputerChoise
             getRandom={handleDataFromChild}
+            computer={context.winner}
           />
         </div>
       </div>
