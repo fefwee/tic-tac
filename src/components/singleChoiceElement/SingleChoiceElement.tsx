@@ -1,26 +1,27 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { FC, useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Context } from "../../context/Context";
 import ComputerChoise from "../computerChoise/ComputerChoise";
 import DetailChoiceElement from "../detail-choice-element/DetailChoiceElement";
 import style from './style.module.css'
+import { GameValue, VariantGame } from "../../types/gameType";
 
-const SingleChoiceElement = () => {
+const SingleChoiceElement:FC = () => {
 
   const context = useContext(Context);
-  const [singleState, setSingleState] = useState<any>(context.currentGame.tasc);
-  const [dataFromChild, setDataFromChild] = useState<any>([]);
-  const [single, setSingle] = useState<any>({});
-  const [result, setResult] = useState<any>('');
-  const [count, setCount] = useState(0)
+  const [singleState, setSingleState] = useState<VariantGame[]>(context.currentGame.tasc);
+  const [dataFromChild, setDataFromChild] = useState<VariantGame>({} as VariantGame);
+  const [single, setSingle] = useState<VariantGame>({} as VariantGame);
+  const [result, setResult] = useState<string>('');
+  const [count, setCount] = useState<number>(0)
   const navigate = useNavigate();
-  const { id } = useParams();
+  const { id } = useParams<string>();
 
 
-  const userChoice = (data: any, id: any) => {
-    console.log(data)
+  const userChoice = (data: VariantGame[], id: string | undefined) => {
+    console.log(data);
     if (data) {
-      const dat = data.filter((item: any) => item.id === Number(id));
+      const dat = data.filter((item: VariantGame) => item.id === Number(id));
       setSingle(dat[0]);
       return dat;
     } else {
@@ -41,9 +42,10 @@ const SingleChoiceElement = () => {
   }
 
 
-  const handleDataFromChild = (data: any) => {
+  const handleDataFromChild = (data: VariantGame) => {
     if (JSON.stringify(data) !== '{}') {
       userChoice(singleState, id);
+      console.log(data)
       setDataFromChild(data);
     }
   };
@@ -53,10 +55,10 @@ const SingleChoiceElement = () => {
     navigate('/')
   }
 
-  function handleUserChoice(choice: any, computer: any) {
+  function handleUserChoice(choice:VariantGame, computer: VariantGame) {
     console.log(choice, computer)
     const choices: string[] = ['rock', 'scissors', 'paper', 'spock', 'lizard'];
-    const rules: any = {
+    const rules:{[key: string]: string[]} = {
       'rock': ['scissors', 'lizard'],
       'scissors': ['paper', 'lizard'],
       'paper': ['rock', 'spock'],
@@ -68,10 +70,10 @@ const SingleChoiceElement = () => {
       setResult('Ничья!');
     } else if (rules[choice.choice].includes(computer.choice)) {
       setResult('Вы выиграли!');
-      context.setCount((count: any) => count + 1);
+      context.setCount((count:number) => count + 1);
 
     } else {
-      context.setCount((count: any) => {
+      context.setCount((count: number) => {
         if (count === 0) {
           return count
         }
@@ -105,7 +107,6 @@ const SingleChoiceElement = () => {
         </div>
       </div>
     </div>
-
   </div>;
 };
 

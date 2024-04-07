@@ -1,8 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import style from './style.module.css';
+import { VariantGame } from '../../types/gameType';
 
-const DetailChoiceElement = ({random}: any) => {
 
+type DetailChoiceElementProps = {
+  random:VariantGame | null
+}
+const DetailChoiceElement:FC<DetailChoiceElementProps> = ({random}) => {
+console.log(random)
   const [rand,setRand] = useState(random);
 
   useEffect(() => {

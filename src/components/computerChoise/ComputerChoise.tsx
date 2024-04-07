@@ -1,12 +1,16 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { FC, useContext, useEffect, useState } from 'react'
 import DetailChoiceElement from '../detail-choice-element/DetailChoiceElement';
 import { Context } from '../../context/Context';
+import { VariantGame } from '../../types/gameType';
 
-const ComputerChoise = ({getRandom}:any) => {
 
+type GetRandomProps = {
+    getRandom:(e:VariantGame)=> void
+}
+const ComputerChoise:FC<GetRandomProps> = ({getRandom}) => {
     const context = useContext(Context)
-    const [random, setRandom] = useState<any>(context.currentGame.tasc);
-    const [randEl, setRandEl] = useState<any>(null);
+    const [random, setRandom] = useState<VariantGame[]>(context.currentGame.tasc);
+    const [randEl, setRandEl] = useState<VariantGame | null>(null);
 
 
     useEffect(() => {
@@ -17,7 +21,7 @@ const ComputerChoise = ({getRandom}:any) => {
     }, [])
 
   
-    const randonElement = (data: any) => {
+    const randonElement = (data:VariantGame[]) => {
         const rand = Math.floor(Math.random() * data.length);
         const randomData = data[rand];
         setRandEl(randomData);
@@ -27,8 +31,7 @@ const ComputerChoise = ({getRandom}:any) => {
     return (
         <div>
             <DetailChoiceElement   random = {randEl} />
-          
-            <div>  
+                <div>  
             </div>
         </div>
     )

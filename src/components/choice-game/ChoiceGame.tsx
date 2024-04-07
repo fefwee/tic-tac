@@ -2,18 +2,16 @@ import React, { FC, useContext, useEffect, useReducer } from 'react';
 import style from './style.module.css';
 import ChoiseElement from '../choose-element/ChoiseElement';
 import { Context } from '../../context/Context';
+import { FullGameValue, GameValue, VariantGame } from '../../types/gameType';
 
-interface ChoiceGameProps {
-    initialState: any;
+type ChoiceGameProps = {
+    initialState:GameValue;
 }
 
-const ChoiceGame: FC<ChoiceGameProps> = ({ initialState }: any) => {
-
-    const context = useContext(Context);
-    const setContextValue = useContext(Context)
+const ChoiceGame: FC<ChoiceGameProps> = ({ initialState }) => {
+        const setContextValue = useContext(Context)
 
     useEffect(() => {
-        console.log(initialState)
         setContextValue.setCUrrentGame(initialState);
     }, [initialState])
 

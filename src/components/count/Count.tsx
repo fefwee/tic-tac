@@ -6,7 +6,7 @@ type CountProps = {
     count: number;
 }
 
-const Count: FC<CountProps> = ({ count }: any) => {
+const Count: FC<CountProps> = ({ count }) => {
 
 
     const context = useContext(Context);

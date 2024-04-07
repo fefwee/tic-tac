@@ -1,17 +1,18 @@
-import React from 'react';
+import React, { FC } from 'react';
 import style from './style.module.css';
 import { useNavigate } from 'react-router-dom';
+import { FullGameValue, GameValue, VariantGame } from '../../types/gameType';
 
-const ChoiseElement = (props: any) => {
 
+const ChoiseElement:FC<FullGameValue> = (props) => {
     const navigate = useNavigate();
 
-    const naviagateToDetail = (id?: number): void => {
+    const naviagateToDetail = (id: number): void => {
         const path = '/' + id;
         navigate(`${path}`)
     }
     const selectBackground = () => {
-        const types = props.item.type;
+        const types:string = props.item.type;
         switch (types) {
             case "classic":
                 return { backgroundImage: 'url(/assets/bg-triangle.svg)' }
@@ -26,7 +27,7 @@ const ChoiseElement = (props: any) => {
     return (
         <div className={style.box_container}>
             <div className={style.general_container} style={selectBackground()}>
-                {props.item.tasc.map((item: any) => {
+                {props.item.tasc.map((item:VariantGame) => {
                     return (
                         <div key={item.id} className={props.item.type === 'classic' ? `${style.element_classic}`
                             : props.item.type === 'bonus' ? `${style.element_bonus}`

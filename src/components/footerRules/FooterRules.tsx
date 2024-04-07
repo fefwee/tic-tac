@@ -1,12 +1,12 @@
-import React, { useContext, useReducer, useState } from 'react';
+import React, { FC, useContext, useState } from 'react';
 import style from './style.module.css';
 import { Context } from '../../context/Context';
 import Modal from '../modal/Modal';
-import { Link } from 'react-router-dom';
 
-const FooterRules = () => {
+const FooterRules: FC = () => {
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const context = useContext(Context);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -15,9 +15,6 @@ const FooterRules = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   }
-
-  const context = useContext(Context);
-
 
 
   return (
