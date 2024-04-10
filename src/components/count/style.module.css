@@ -1,42 +1,88 @@
-.container{
+.container {
     position: relative;
     z-index: 10000;
-    width: 600px;
-    border:1px solid red;
+    max-width: 600px;
     margin: 0 auto;
     border: 3px solid grey;
     border-radius: 25px;
 
 }
-.wrapperContainer{
+
+.wrapperContainer {
     position: relative;
     padding: 15px 10px;
     display: flex;
     justify-content: space-between;
 }
+
 .count {
     width: 100px;
-    background-color:#ffff;
+    background-color: #ffff;
     border-radius: 25px;
-   
+
 }
-.countList{
+
+.countList {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
 }
+
 .countTitle {
     padding: 5px 0;
     font-size: 25px;
     font-weight: bold;
     color: blue;
 }
-.currentCount{
+
+.currentCount {
     font-size: 50px;
-    font-weight:bold;
+    font-weight: bold;
     color: #3c4262;
 }
 
+@media screen and (max-width: 650px) {
+    .container {
+        width: 500px;
+    }
+    .count {
+        width: 70px;
+    }
+    .countTitle {
+        font-size: 15px;
+    }
+    .currentCount {
+        font-size: 40px;
+    }
 
+    .wrapperContainer img {
+        max-height: 80px;
+    }
+}
+@media screen and (max-width: 550px) {
+    .container {
+        width: 400px;
+    }
+    .wrapperContainer {
+        position: relative;
+        padding: 10px 5px;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+@media screen and (max-width: 450px) {
+    .container {
+        width: 350px;
+    }
+    .wrapperContainer img {
+        max-height: 80px;
+    }
+    .wrapperContainer {
+        position: relative;
+        padding: 10px 5px;
+        display: flex;
+        justify-content: space-between;
+    }
+}

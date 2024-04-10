@@ -29,7 +29,6 @@
 }
 
 .boxElement {
-
     padding: 10px;
     height: 100%;
 }
@@ -54,3 +53,49 @@
     color:blue;
     font-size: 15x;
  } 
+
+ @media screen and (max-width:1000px){
+   
+    .flex {
+        position: relative;
+        margin-top: 90px;
+        display: flex;
+    }
+    .againButton{
+        border-radius: 10px;
+        padding: 10px 10px;
+        color:blue;
+        font-size: 10x;
+     } 
+     .boxElement {
+        padding: 10px 0;
+        height: 90%;
+    }
+    h1{
+        font-size: 20px;
+    }
+    h2{
+        font-size: 15px;
+    }
+    button{
+        font-size: 13px;
+    }
+ }
+
+ @media screen and (max-width:550px){
+
+    .flex {
+       margin: 0 30px;
+    }
+    .container {
+
+        position: relative;
+        width: 120px;
+        height: 120px;
+       
+    }
+    .textResult{
+        position: absolute;
+        top: 100%;
+    }
+ }

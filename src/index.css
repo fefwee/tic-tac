@@ -39,3 +39,37 @@ li {
     0 0 0 90px rgb(34, 49, 82, 0.5),
     0 0 0 140px rgb(31, 45, 79, 1);
 }
+
+@media screen and (max-width: 400px){
+  .footer_rules {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 800px){
+  .footer_rules {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  body {
+    overflow: hidden;
+    height: 100vh;
+    position: relative;
+    background-color: #1b2a4b;
+  }
+  .count{
+    margin-top: 10px;
+  }
+}
+
+@media screen and (max-width: 1000px){
+
+  body {
+    overflow: hidden;
+    height: 100vh;
+    position: relative;
+    background-color: #1b2a4b;
+  }
+}
