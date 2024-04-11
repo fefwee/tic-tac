@@ -6,33 +6,39 @@
     font-size: 20px;
     color: #fff;
 }
-.block{
+
+.block {
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
 }
-.container{
+
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-h1{
+
+h1 {
     text-align: center;
     color: #ffff;
 }
+
 .container img {
     margin: 30px 0;
     width: 80%;
 }
+
 ul li {
-    color:#fff;
+    color: #fff;
     font-size: 25px;
     padding: 10px;
 }
-@media screen and (max-width: 800px){
-.block{
-    display: flex;
-    justify-content: center;
-    display: inline-block;
-}
+
+@media screen and (max-width: 800px) {
+    .block {
+        display: flex;
+        justify-content: center;
+        display: inline-block;
+    }
 }

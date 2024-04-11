@@ -5,24 +5,24 @@ import { VariantGame } from '../../types/gameType';
 
 
 type GetRandomProps = {
-    getRandom:(e:VariantGame)=> void
-    computer:any
+    getRandom: (e: VariantGame) => void
+    computer: VariantGame
 }
-const ComputerChoise:FC<GetRandomProps> = ({getRandom,computer}) => {
+const ComputerChoise: FC<GetRandomProps> = ({ getRandom, computer }) => {
     const context = useContext(Context)
     const [random, setRandom] = useState<VariantGame[]>(context.currentGame.tasc);
     const [randEl, setRandEl] = useState<VariantGame | null>(null);
 
 
     useEffect(() => {
-        setRandom(context.currentGame); 
+        setRandom(context.currentGame);
         const rand = randonElement(random);
         getRandom(rand);
-        
+
     }, [])
 
-  
-    const randonElement = (data:VariantGame[]) => {
+
+    const randonElement = (data: VariantGame[]) => {
         const rand = Math.floor(Math.random() * data.length);
         const randomData = data[rand];
         setRandEl(randomData);
@@ -31,10 +31,9 @@ const ComputerChoise:FC<GetRandomProps> = ({getRandom,computer}) => {
 
     return (
         <div>
-            <DetailChoiceElement   random = {randEl} 
-            computer = {computer}
-            />
-                <div>  
+            <DetailChoiceElement random={randEl}
+                computer={computer} result={null} />
+            <div>
             </div>
         </div>
     )

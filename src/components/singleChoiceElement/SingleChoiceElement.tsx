@@ -19,7 +19,6 @@ const SingleChoiceElement: FC = () => {
 
 
   const userChoice = (data: VariantGame[], id: string | undefined) => {
-    console.log(data);
     if (data) {
       const dat = data.filter((item: VariantGame) => item.id === Number(id));
       setSingle(dat[0]);
@@ -45,7 +44,6 @@ const SingleChoiceElement: FC = () => {
   const handleDataFromChild = (data: VariantGame) => {
     if (JSON.stringify(data) !== '{}') {
       userChoice(singleState, id);
-      console.log(data)
       setDataFromChild(data);
     }
   };
@@ -57,7 +55,6 @@ const SingleChoiceElement: FC = () => {
 
   function handleUserChoice(choice: VariantGame, computer: VariantGame) {
     context.setWinner('');
-    console.log(choice, computer)
     const choices: string[] = ['rock', 'scissors', 'paper', 'spock', 'lizard'];
     const rules: { [key: string]: string[] } = {
       'rock': ['scissors', 'lizard'],
@@ -92,7 +89,7 @@ const SingleChoiceElement: FC = () => {
       <div className={style.boxElement}>
         <h2>Вы выбрали</h2>
         <div>
-          <DetailChoiceElement random={single} result={context.winner} />
+          <DetailChoiceElement random={single} result={context.winner} computer={null} />
         </div>
       </div>
       <div className={style.textResult}>

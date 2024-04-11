@@ -5,11 +5,11 @@ import { Context } from '../../context/Context';
 import { FullGameValue, GameValue, VariantGame } from '../../types/gameType';
 
 type ChoiceGameProps = {
-    initialState:GameValue;
+    initialState: GameValue;
 }
 
 const ChoiceGame: FC<ChoiceGameProps> = ({ initialState }) => {
-        const setContextValue = useContext(Context)
+    const setContextValue = useContext(Context)
 
     useEffect(() => {
         setContextValue.setCUrrentGame(initialState);

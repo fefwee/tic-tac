@@ -1,4 +1,4 @@
-import React, { FC, useContext, useEffect, useState } from 'react';
+import React, { FC, useContext} from 'react';
 import style from './style.module.css';
 import { Context } from '../../context/Context';
 
@@ -10,7 +10,7 @@ const Count: FC<CountProps> = ({ count }) => {
 
 
     const context = useContext(Context);
-    
+
 
     return (
         <div className={style.container}>

@@ -28,11 +28,11 @@ const FooterRules: FC = () => {
               (context.stateGameMode === 'CLASSIC' ?
                 'BONUS' : false))}
         >{context.stateGameMode}</button>
-    
-   
+
+
         <button className={style.button_footer} onClick={openModal}>RULES</button>
-        </div>
-        <div>
+      </div>
+      <div>
         <Modal isOpen={isModalOpen} onClose={closeModal}>
           <div>
             <h1>Правила игры</h1>

@@ -47,12 +47,15 @@
     .container {
         width: 500px;
     }
+
     .count {
         width: 70px;
     }
+
     .countTitle {
         font-size: 15px;
     }
+
     .currentCount {
         font-size: 40px;
     }
@@ -61,10 +64,12 @@
         max-height: 80px;
     }
 }
+
 @media screen and (max-width: 550px) {
     .container {
         width: 400px;
     }
+
     .wrapperContainer {
         position: relative;
         padding: 10px 5px;
@@ -72,13 +77,16 @@
         justify-content: space-between;
     }
 }
+
 @media screen and (max-width: 450px) {
     .container {
         width: 350px;
     }
+
     .wrapperContainer img {
         max-height: 80px;
     }
+
     .wrapperContainer {
         position: relative;
         padding: 10px 5px;

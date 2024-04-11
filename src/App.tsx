@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import { Count } from './components/count/Count';
 import { Context } from './context/Context';
 import Main from './components/main/Main';
 import FooterRules from './components/footerRules/FooterRules';
-import Modal from './components/modal/Modal';
-import { Router, Routes } from 'react-router-dom';
 
 function App() {
 
@@ -22,18 +20,18 @@ function App() {
     setStateGAmeModel,
     winner,
     setWinner
-  } 
+  }
   return (
     <Context.Provider value={value}>
       <div className="App">
         <div className='count'>
-          <Count count={count}/>
+          <Count count={count} />
         </div>
         <div>
           <Main />
         </div>
         <div className='footer_rules'>
-          <FooterRules/>
+          <FooterRules />
         </div>
       </div>
     </Context.Provider>

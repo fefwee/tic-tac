@@ -1,15 +1,14 @@
-import React, { FC, useContext, useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import style from './style.module.css';
 import { VariantGame } from '../../types/gameType';
-import { Context } from '../../context/Context';
 
 
 type DetailChoiceElementProps = {
   random: VariantGame | null
-  result: any | null
-  computer:any | null
+  result: string | null
+  computer: VariantGame | string | null
 }
-const DetailChoiceElement: FC<any> = ({ random,result,computer }) => {
+const DetailChoiceElement: FC<DetailChoiceElementProps> = ({ random, result, computer }) => {
 
   const [rand, setRand] = useState(random);
 
@@ -19,7 +18,7 @@ const DetailChoiceElement: FC<any> = ({ random,result,computer }) => {
   }, [random, rand])
 
   return (
-<div className={`${style.flex} ${result === 'winner' ? 'shadow' : computer === 'winner1' ? 'shadow' : ''}`}>
+    <div className={`${style.flex} ${result === 'winner' ? 'shadow' : computer === 'winner1' ? 'shadow' : ''}`}>
       {rand && (
         <div className={style.box_container}>
           <div className={style.general_container}>
