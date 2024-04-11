@@ -18,9 +18,9 @@ const SingleChoiceElement: FC = () => {
   const { id } = useParams<string>();
 
 
-  const userChoice = (data: VariantGame[], id: string | undefined) => {
-    if (data) {
-      const dat = data.filter((item: VariantGame) => item.id === Number(id));
+  const userChoice = (userEl: VariantGame[], id: string | undefined) => {
+    if (userEl) {
+      const dat = userEl.filter((item: VariantGame) => item.id === Number(id));
       setSingle(dat[0]);
       return dat;
     } else {
